@@ -1,0 +1,40 @@
+# Table: MIDDLE_EARTH.PUBLIC.SPECIES
+#
+# Purpose: To hold the definitions of the various species of the world
+# CHANGELOG -----
+# Author:  John Doe
+# Date: 9/21/2022
+# Description: 
+#    Created the table 
+#
+definitionStyle: 1.0
+type: table
+object:
+  name: SPECIES
+  database: MIDDLE_EARTH 
+  schema: PUBLIC
+options:
+  checkExists: True
+  validate: True
+spec:
+  pre: |
+    USE DATABASE {{DATABASE}};
+    USE SCHEMA {{SCHEMA}}; 
+
+  init: |
+    CREATE TABLE {{DATABASE}}.{{SCHEMA}}.SPECIES (
+      IDKEY INTEGER,
+      NAME VARCHAR(200),
+      FOREIGN_ORIGIN BOOLEAN DEFAULT 'false',
+      EARLIEST_DATE_SEEN TIMESTAMP_NTZ,
+      GREATEST_DATE_SEEN TIMESTAMP_NTZ NULLABLE,
+      LIMB_COUNT INTEGER,
+      AVG_HEIGHT NUMBER(38, 2),
+      AVG_WEIGHT NUMBER(38, 2),
+      CARNIVOROUS BOOLEAN DEFAULT 'true',
+      NOCTURNAL BOOLEAN DEFAULT 'false',
+      EXPECTED_LIFESPAN_YEARS INTEGER
+    );
+  post: |
+    GRANT SELECT ON TABLE {{DATABASE}}.{{SCHEMA}}.SPECIES TO ROLE MIDDLE_EARTH_READ;
+    GRANT INSERT,UPDATE ON TABLE {{DATABASE}}.{{SCHEMA}}.SPECIES TO ROLE MIDDLE_EARTH_RW;

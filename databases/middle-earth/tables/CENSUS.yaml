@@ -1,0 +1,35 @@
+# Table: MIDDLE_EARTH.PUBLIC.LANDS
+#
+# Purpose: To track the residential composition of regions of the world
+# CHANGELOG -----
+# Author:  John Doe
+# Date: 9/29/2022
+# Description: 
+#    Created the table 
+#
+definitionStyle: 1.0
+type: table
+object:
+  name: CENSUS
+  database: MIDDLE_EARTH 
+  schema: PUBLIC
+options:
+  checkExists: True
+  validate: True
+spec:
+  pre: |
+    USE DATABASE {{DATABASE}};
+    USE SCHEMA {{SCHEMA}}; 
+
+  init: |
+    CREATE TABLE {{DATABASE}}.{{SCHEMA}}.CENSUS (
+      REGION_KEY INTEGER,
+      SPECIES_KEY INTEGER,
+      OBSERVED_COUNT INTEGER,
+      OBSERVED_PROPAGATION INTEGER,
+      OFFSPRING_BEARING_CAPABLE INTEGER,
+      OBSERVATION_DTE TIMESTAMP_NTZ
+    );
+  post: |
+    GRANT SELECT ON TABLE {{DATABASE}}.{{SCHEMA}}.CENSUS TO ROLE MIDDLE_EARTH_READ;
+    GRANT INSERT,UPDATE ON TABLE {{DATABASE}}.{{SCHEMA}}.CENSUS TO ROLE MIDDLE_EARTH_WRITE;
