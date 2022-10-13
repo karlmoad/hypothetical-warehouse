@@ -1,0 +1,25 @@
+# Database Roles: MIDDLE_EARTH
+#
+# PURPOSE: Define roles OWNER, WRIUTE & READ for MIDDLE_EATH databse
+#
+# CHANGELOG -----
+# Author:  John Doe
+# Date: 9/21/2022
+# Description: Created the roles script
+#
+definitionStyle: 1.0
+type: role
+object:
+  name: MIDDLE_EARTH
+spec:
+  pre: |
+      CREATE ROLE IF NOT EXISTS {{NAME}}_OWNER;
+      CREATE ROLE IF NOT EXISTS {{NAME}_READ;
+      CREATE ROLE IF NOT EXISTS {{NAME}}_WRITE;
+
+      GRANT OWNERSHIP ON ROLE {{NAME}}_OWNER TO ROLE SYSADMIN;
+      GRANT OWNERSHIP ON ROLE {{NAME}_READ  TO ROLE SYSADMIN;
+      GRANT OWNERSHIP ON ROLE {{NAME}}_WRITE TO ROLE SYSADMIN;
+
+      GRANT ROLE {{NAME}}_OWNER TO ROLE SYSADMIN;
+      GRANT ROLE {{NAME}_READ TO ROLE {{NAME}}_WRITE;

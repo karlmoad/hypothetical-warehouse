@@ -1,0 +1,19 @@
+# DATABASE: MIDDLE_EARTH
+#
+# CHANGELOG -----
+# Author:  John Doe
+# Date: 9/21/2022
+# Description: Created the database object
+#
+definitionStyle: 1.0
+type: database
+object:
+  name: MIDDLE_EARTH
+options:
+  checkExists: true
+spec:
+  init: |
+    CREATE DATABASE {{NAME}};
+  post: |
+    GRANT OWNERSHIP ON DATABASE {{NAME}} TO ROLE MIDDLE_EARTH_OWNER
+    GRANT USGAE ON DATABASE {{NAME}} TO ROLE MIDDLE_EARTH_READ;
