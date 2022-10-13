@@ -1,0 +1,34 @@
+# Table: MIDDLE_EARTH.PUBLIC.LANDS
+#
+# Purpose: To hold the geopraphic regions of the world
+# CHANGELOG -----
+# Author:  John Doe
+# Date: 9/29/2022
+# Description: 
+#    Created the table 
+#
+definitionStyle: 1.0
+type: table
+object:
+  name: LANDS
+  database: MIDDLE_EARTH 
+  schema: PUBLIC
+options:
+  checkExists: True
+  validate: True
+spec:
+  pre: |
+    USE DATABASE {{DATABASE}};
+    USE SCHEMA {{SCHEMA}}; 
+
+  init: |
+    CREATE TABLE {{DATABASE}}.{{SCHEMA}}.LANDS (
+      IDKEY INTEGER,
+      NAME VARCHAR(200),
+      REGION VARCHAR(),
+      AVG_TEMP NUMBER(5,2),
+      TEMP_SCALE VARCHAR(10)
+    );
+  post: |
+    GRANT SELECT ON TABLE {{DATABASE}}.{{SCHEMA}}.LANDS TO ROLE MIDDLE_EARTH_READ;
+    GRANT INSERT,UPDATE ON TABLE {{DATABASE}}.{{SCHEMA}}.LANDS TO ROLE MIDDLE_EARTH_WRITE;
