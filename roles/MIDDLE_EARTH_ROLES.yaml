@@ -7,19 +7,19 @@
 # Date: 9/21/2022
 # Description: Created the roles script
 #
-definitionStyle: 1.0
+definitionStyle: snowflake
 type: role
-object:
-  name: MIDDLE_EARTH
 spec:
-  pre: |
-      CREATE ROLE IF NOT EXISTS MIDDLE_EARTH_OWNER;
-      CREATE ROLE IF NOT EXISTS MIDDLE_EARTH_READ;
-      CREATE ROLE IF NOT EXISTS MIDDLE_EARTH_WRITE;
-
-      GRANT OWNERSHIP ON ROLE MIDDLE_EARTH_OWNER TO ROLE SYSADMIN;
-      GRANT OWNERSHIP ON ROLE MIDDLE_EARTH_READ  TO ROLE SYSADMIN;
-      GRANT OWNERSHIP ON ROLE MIDDLE_EARTH_WRITE TO ROLE SYSADMIN;
-
-      GRANT ROLE MIDDLE_EARTH_OWNER TO ROLE SYSADMIN;
-      GRANT ROLE MIDDLE_EARTH_READ TO ROLE MIDDLE_EARTH_WRITE;
+  roles:
+    - MIDDLE_EARTH_OWNER
+    - MIDDLE_EARTH_READ
+    - MIDDLE_EARTH_RW
+  grants:
+    - role: MIDDLE_EARTH_OWNER
+      object:
+        type: role
+        id: SYSADMIN
+    - role: MIDDLE_EARTH_READ
+      object:
+        type: role
+        id: MIDDLE_EARTH_RW

@@ -7,7 +7,7 @@
 # Description: 
 #    Created the table 
 #
-definitionStyle: 1.0
+definitionStyle: snowflake
 type: table
 object:
   name: CENSUS

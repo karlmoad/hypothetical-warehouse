@@ -1,16 +1,19 @@
-# DATABASE: MIDDLE_EARTH
+# Table: MIDDLE_EARTH.AGES
 #
+# Purpose: To track the residential composition of regions of the world
 # CHANGELOG -----
 # Author:  John Doe
-# Date: 9/21/2022
-# Description: Created the database object
+# Date: 9/29/2022
+# Description: 
+#    Created the table 
 #
 definitionStyle: snowflake
-type: database
+type: schema
 object:
-  name: MIDDLE_EARTH
+  name: AGES
+  database: MIDDLE_EARTH 
 options:
-  checkExists: true
+  checkExists: True
 spec:
   owner:
     type: role
