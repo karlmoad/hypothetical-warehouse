@@ -17,6 +17,9 @@ options:
   checkExists: True
   validate: True
 spec:
+  owner:
+    type: role
+    id: MIDDLE_EARTH_OWNER
   pre: |
     USE DATABASE {{DATABASE}};
     USE SCHEMA {{SCHEMA}}; 
