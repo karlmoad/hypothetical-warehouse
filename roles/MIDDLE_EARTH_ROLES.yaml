@@ -18,7 +18,7 @@ spec:
     - role: MIDDLE_EARTH_OWNER
       object:
         type: role
-        id: SYSADMIN
+        id: CHANGE_MGMT
     - role: MIDDLE_EARTH_READ
       object:
         type: role
