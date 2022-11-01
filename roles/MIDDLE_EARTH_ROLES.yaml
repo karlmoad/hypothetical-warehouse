@@ -15,10 +15,6 @@ spec:
     - MIDDLE_EARTH_READ
     - MIDDLE_EARTH_RW
   grants:
-    - role: MIDDLE_EARTH_OWNER
-      object:
-        type: role
-        id: CHANGE_MGMT
     - role: MIDDLE_EARTH_READ
       object:
         type: role
