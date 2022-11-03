@@ -1,0 +1,18 @@
+# Warehouse CHANGE_MGMT_WH
+#
+# Purpose: Warehouse for change management operations
+# CHANGELOG -----
+# Author:  John Doe
+# Date: 9/29/2022
+# Description: 
+#    Created the table 
+#
+definitionStyle: snowflake
+type: warehouse
+object:
+  name: CHANGE_MGMT_WH 
+spec:
+  usage:
+    grants:
+      - type: role
+        id: MIDDLE_EARTH_OWNER
