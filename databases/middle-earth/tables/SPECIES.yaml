@@ -21,10 +21,6 @@ spec:
     owner:
       type: role
       id: MIDDLE_EARTH_OWNER
-  pre: |
-    USE DATABASE {{DATABASE}};
-    USE SCHEMA {{SCHEMA}}; 
-
   init: |
     CREATE TABLE {{DATABASE}}.{{SCHEMA}}.SPECIES (
       IDKEY INTEGER,

@@ -23,8 +23,6 @@ spec:
       id: MIDDLE_EARTH_OWNER
   pre: |
     USE DATABASE {{DATABASE}};
-    USE SCHEMA {{SCHEMA}}; 
-
   init: |
     CREATE TABLE {{DATABASE}}.{{SCHEMA}}.LANDS (
       IDKEY INTEGER,
