@@ -1,0 +1,26 @@
+# Table: MIDDLE_EARTH.PUBLIC
+#
+# Purpose: Default public common schema of the DB
+# CHANGELOG -----
+# Author:  John Doe
+# Date: 9/29/2022
+# Description: 
+#    Created the table 
+#
+definitionStyle: snowflake
+type: schema
+object:
+  name: PUBLIC
+  database: MIDDLE_EARTH 
+options:
+  checkExists: True
+spec:
+  owner:
+    type: role
+    id: MIDDLE_EARTH_OWNER
+  usage:
+    grants:
+      - type: role
+        id: MIDDLE_EARTH_READ
+      - type: role
+        id: MIDDLE_EARTH_RW
